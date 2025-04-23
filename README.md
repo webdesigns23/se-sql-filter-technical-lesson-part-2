@@ -2,10 +2,12 @@
 
 ## Instructions
 
-Now, we'll walk through executing a handful of common and handy SQL queries that use WHERE with conditional operators. We'll start with an example of what this type of query looks like, then type a query specifically related to the cats table.
+Now, we'll walk through executing a handful of common and handy SQL queries that use `WHERE` with conditional operators. We'll start with an example of what this type of query looks like, then type a query specifically related to the cats table.
 <br /><br />
-For this section as the queries get more advanced we'll be using a simpler database called pets_database.db containing a table called cats.
+
+For this section as the queries get more advanced we'll be using a simpler database called `pets_database.db` containing a table called cats.
 <br /><br />
+
 The cats table is populated with the following data:
 
 | id | name      | age  | breed              | owner_id |
@@ -19,9 +21,20 @@ The cats table is populated with the following data:
 
 ***Cats Table Dataset***
 
-Below we make a new database connection and read all of the data from this table:
+## Set Up
+* Fork and Clone the Lab
+* Install dependencies and open the virtual environment
+    * `pipenv install`
+    * `pipenv shell`
+* Run main.py
+    * `python3 main.py`
+
+In `main.py`, we make a new database connection and read all of the data from this table:
 
 ```python
+import sqlite3
+import pandas as pd
+
 conn = sqlite3.connect('pets_database.db')
 cursor = conn.cursor()
 cats_data = pd.read_sql("SELECT * FROM cats;", conn)
